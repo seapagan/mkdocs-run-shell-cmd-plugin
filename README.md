@@ -6,6 +6,8 @@ This is an [MkDocs](https://www.mkdocs.org/) plugin that runs the specified
 command during the build process and injects the command and output into the
 generated site.
 
+Status: **Currently a blank shell with no functionality**
+
 ## Installation
 
 Install the package with pip:
