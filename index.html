@@ -10,6 +10,8 @@
       
       
       
+        <link rel="next" href="examples/">
+      
       <link rel="icon" href="assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
@@ -57,7 +59,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#examples" class="md-skip">
+        <a href="#mkdocs-plugin-run-shell-cmd" class="md-skip">
           Skip to content
         </a>
       
@@ -92,7 +94,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Examples
+              Home
             
           </span>
         </div>
@@ -187,10 +189,99 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Home
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="." class="md-nav__link md-nav__link--active">
-        Examples
+        Home
       </a>
       
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    License
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#todo" class="md-nav__link">
+    TODO
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="examples/" class="md-nav__link">
+        Examples
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="license/" class="md-nav__link">
+        License
+      </a>
     </li>
   
 
@@ -215,6 +306,49 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#installation" class="md-nav__link">
+    Installation
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    Usage
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#configuration" class="md-nav__link">
+    Configuration
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#license" class="md-nav__link">
+    License
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#todo" class="md-nav__link">
+    TODO
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -228,41 +362,108 @@
                   
 
 
-<h1 id="examples">Examples</h1>
-<p>Run the 'cowsay' command!</p>
-<p><code>{{ run-shell-cmd(cmd="cowsay This works!!!") }}</code></p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>cowsay<span class="w"> </span>This<span class="w"> </span>works!!!
-<span class="go">  _____________</span>
-<span class="go">| This works!!! |</span>
-<span class="go">  =============</span>
-<span class="go">             \</span>
-<span class="go">              \</span>
-<span class="go">                ^__^</span>
-<span class="go">                (oo)\_______</span>
-<span class="go">                (__)\       )\/\</span>
-<span class="go">                    ||----w |</span>
-<span class="go">                    ||     ||</span>
+<h1 id="mkdocs-plugin-run-shell-cmd">MkDocs Plugin : <code>run-shell-cmd</code></h1>
+<p>This is an <a href="https://www.mkdocs.org/">MkDocs</a> plugin that runs a specified
+command (or commands) during the <code>build</code>, <code>serve</code> and publish process and
+injects the command and output into the generated site in a fenced block.</p>
+<p>It's very useful for documenting command-line programs, expecially during
+development where the command line may change frequently.</p>
+<p>See the <a href="../examples">examples</a> page for several examples of the plugin in
+action.</p>
+<div class="admonition danger">
+<p class="admonition-title">IMPORTANT</p>
+<p>This plugin allows running arbitrary commands on your system. It does
+<strong>NOT</strong> check the command for safety, and it does <strong>NOT</strong> run the command in
+a sandbox. However, it does ask you if you want to run each command, and it
+does allow you to disable all commands from running again for the duration
+of the session. Also commands are not run using a shell, so your environment
+variables are not available to the command. Commands are set in the markdown
+file, so they are not run unless you build, serve or publish the site. If
+you are using a CI/CD pipeline to generate your docs, you should be aware
+that some standard commands may be missing or blocked, and the CI will
+probably hang. Generating the docs on a local machine and then pushing them
+up to your hosting is probably a better idea.</p>
+</div>
+<h2 id="installation">Installation</h2>
+<p>Install the package with pip:</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-run-shell-cmd-plugin
 </code></pre></div>
-<p>Show the build OS information:</p>
-<p><code>{{ run-shell-cmd(cmd='lsb_release -a') }}</code></p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>lsb_release<span class="w"> </span>-a
-<span class="go">Distributor ID: Ubuntu</span>
-<span class="go">Description:    Ubuntu 22.04.2 LTS</span>
-<span class="go">Release:    22.04</span>
-<span class="go">Codename:   jammy</span>
+<p>or, if you are using <a href="https://python-poetry.org">Poetry</a>:</p>
+<div class="highlight"><pre><span></span><code>poetry<span class="w"> </span>add<span class="w"> </span>mkdocs-run-shell-cmd-plugin<span class="w"> </span>--group<span class="w"> </span>dev
 </code></pre></div>
-<p>Ping <code>google.com</code> 3 times and show the output.:</p>
-<p><code>{{ run-shell-cmd(cmd='ping -c 3 google.com') }}</code></p>
-<div class="highlight"><pre><span></span><code><span class="gp">$ </span>ping<span class="w"> </span>-c<span class="w"> </span><span class="m">3</span><span class="w"> </span>google.com
-<span class="go">PING google.com (172.217.16.238) 56(84) bytes of data.</span>
-<span class="go">64 bytes from mad08s04-in-f14.1e100.net (172.217.16.238): icmp_seq=1 ttl=116 time=35.7 ms</span>
-<span class="go">64 bytes from lhr48s28-in-f14.1e100.net (172.217.16.238): icmp_seq=2 ttl=116 time=38.3 ms</span>
-<span class="go">64 bytes from lhr48s28-in-f14.1e100.net (172.217.16.238): icmp_seq=3 ttl=116 time=32.9 ms</span>
+<h2 id="usage">Usage</h2>
+<p>Activate the plugin in your <code>mkdocs.yml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">plugins</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">run-shell-cmd</span>
+</code></pre></div>
+<div class="admonition warning">
+<p class="admonition-title">Note</p>
+<p>If you have no <code>plugins</code> entry in your config file yet, you'll likely also
+want to add the <code>search</code> plugin. MkDocs enables it by default if  here is no
+<code>plugins</code> entry set.</p>
+</div>
+<p>To activate the console highlighting you will need to add the following to the
+<code>markdown_extensions</code> section of your <code>mkdocs.yml</code>:</p>
+<div class="highlight"><pre><span></span><code><span class="nt">markdown_extensions</span><span class="p">:</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.superfences</span>
+<span class="w">  </span><span class="p p-Indicator">-</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">pymdownx.highlight</span>
+</code></pre></div>
+<p>You will also need the <code>pymdown-extensions</code> and <code>pygments</code> packages installed in
+your environment, unless you dont want the basic console syntax highlighting
+similar to GitHub markdown.</p>
+<p>Then, in your template, you can use the <code>{{
+run-shell-cmd(cmd="my-command") }}</code> command:</p>
+<pre>
+  # My Project
 
-<span class="go">--- google.com ping statistics ---</span>
-<span class="go">3 packets transmitted, 3 received, 0% packet loss, time 2003ms</span>
-<span class="go">rtt min/avg/max/mdev = 32.895/35.624/38.283/2.200 ms</span>
+  Below is the output of `my-program --help`:
+
+  &#x007B;{ run-shell-cmd(cmd='my-program --help') }}
+</pre>
+
+<p>The spaces around the tag are optional and it is case insensitive, also you can
+use either double or single quotes around the command string.</p>
+<p>All the below strings have identical output:</p>
+<p><code>{{ run-shell-cmd(cmd='my-program --help') }}</code></p>
+<p><code>{{ run-shell-cmd(cmd="my-program --help") }}</code></p>
+<p><code>{{RUN-SHELL-CMD(cmd='my-program --help')}}</code></p>
+<p><code>{{run-shell-cmd(cmd="my-program --help")}}</code></p>
+<p><code>{{ run-SHELL-cmd(cmd="my-program --help")}}</code></p>
+<p>When the site is built, the progress will stop for each command discovered, and
+the user will be asked if it should be run or not :</p>
+<div class="highlight"><pre><span></span><code><span class="go">INFO     -  Building documentation...</span>
+<span class="go">INFO     -  Cleaning site directory</span>
+<span class="go">&quot;cowsay This works!!!&quot; - Run this command? &quot;[(Y)/(N)/(A)lways/(D)isable] [y]:  a</span>
+<span class="go">INFO     -  Documentation built in 1.91 seconds</span>
+<span class="go">INFO     -  [15:31:49] Watching paths for changes: &#39;docs&#39;, &#39;mkdocs.yml&#39;</span>
 </code></pre></div>
+<p>You can choose Yes, No, Always, or Disable. If you choose Always, you will never
+be asked again <strong>FOR THIS SESSION</strong> and all further commands will be run. If you
+choose Disable, you will never be asked again <strong>FOR THIS SESSION</strong> and NO
+further commands will be run.</p>
+<div class="admonition danger">
+<p class="admonition-title">IMPORTANT</p>
+<p>There will <strong>NEVER</strong> be an option to run all commands by default without
+user choice, as this would be a massive security risk.</p>
+</div>
+<h2 id="configuration">Configuration</h2>
+<p>At this time there are no configuration options. I intend to add at least the
+following options:</p>
+<ul>
+<li>disable wrapping in a fence</li>
+<li>choose a specific title for the output, it will be the same for all.</li>
+</ul>
+<h2 id="license">License</h2>
+<p>This is released under the MIT License. See the bundled LICENSE file for more
+details.</p>
+<h2 id="todo">TODO</h2>
+<ul>
+<li>[ ] Add configuration options</li>
+<li>[ ] Add tests</li>
+<li>[ ] Find a way to run on CI/CD without prompting the user, but in a safe way
+  that doesn't allow arbitrary commands to be run. We can always check the <code>CI</code>
+  environment variable, but it's still not good practice to run arbitrary code.</li>
+</ul>
 
 
 
