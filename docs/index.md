@@ -1,4 +1,4 @@
-# Test
+# Examples
 
 Run the 'cowsay' command!
 

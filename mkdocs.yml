@@ -11,5 +11,3 @@ plugins:
 markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight:
-      linenums: true
-      auto_title: true

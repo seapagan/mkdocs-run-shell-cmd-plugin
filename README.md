@@ -2,9 +2,10 @@
 
 This is an [MkDocs](https://www.mkdocs.org/) plugin that runs the specified
 command during the `build` and `serve` process and injects the command and
-output into the generated site in a fenced block. It's very useful for
-documenting command-line programs, expecially during development where the
-command line may change frequently.
+output into the generated site in a fenced block.
+
+It's very useful for documenting command-line programs, expecially during
+development where the command line may change frequently.
 
 See the [demo](https://seapagan.github.io/mkdocs-run-shell-cmd-plugin/) for an example.
 
@@ -19,13 +20,15 @@ See the [demo](https://seapagan.github.io/mkdocs-run-shell-cmd-plugin/) for an e
 
   > This plugin allows running arbitrary commands on your system. It does
   > **NOT** check the command for safety, and it does **NOT** run the command in
-  > a sandbox. However, it does ask you if you want to run the command, and it
-  > does allow you to disable any command from running again for the duration of
-  > the session. Also commands are not run using a shell, so your environment
+  > a sandbox. However, it does ask you if you want to run each command, and it
+  > does allow you to disable all commands from running again for the duration
+  > of the session. Also commands are not run using a shell, so your environment
   > variables are not available to the command. Commands are set in the markdown
-  > file, so they are not run unless you build or serve the site. If you are
-  > using a CI/CD pipeline, you should be aware that some standard commands may
-  > be missing or blocked.
+  > file, so they are not run unless you build, serve or publish the site. If
+  > you are using a CI/CD pipeline to generate your docs, you should be aware
+  > that some standard commands may be missing or blocked, and the CI will
+  > probably hang. Generating the docs on a local machine and then pushing them
+  > up to your hosting is probably a better idea.
 
 ## Installation
 
@@ -127,3 +130,6 @@ details.
 
 - [ ] Add configuration options
 - [ ] Add tests
+- [ ] Find a way to run on CI/CD without prompting the user, but in a safe way
+  that doesn't allow arbitrary commands to be run. We can always check the `CI`
+  environment variable, but it's still not good practice to run arbitrary code.
