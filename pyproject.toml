@@ -1,7 +1,7 @@
 [tool.poetry]
 name = "mkdocs-run-shell-cmd-plugin"
 version = "0.1.0"
-description = "MkDocs plugin to run a specified command and include the output in the generated site."
+description = "MkDocs plugin to run a specified command or commands and include the output in the generated site."
 authors = ["Grant Ramsay <seapagan@gmail.com>"]
 readme = "README.md"
 

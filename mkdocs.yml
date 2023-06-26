@@ -9,5 +9,17 @@ plugins:
   - run-shell-cmd
 
 markdown_extensions:
+  - admonition
+  - attr_list
+  - pymdownx.snippets
   - pymdownx.superfences
-  - pymdownx.highlight:
+  - pymdownx.highlight
+  - pymdownx.tasklist
+
+extra_css:
+  - css/tasklist.css
+
+nav:
+  - Home: index.md
+  - Examples: examples.md
+  - License: license.md

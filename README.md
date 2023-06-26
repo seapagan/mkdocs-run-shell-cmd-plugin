@@ -1,13 +1,14 @@
 # MkDocs Plugin : `run-shell-cmd` <!-- omit in toc -->
 
-This is an [MkDocs](https://www.mkdocs.org/) plugin that runs the specified
-command during the `build` and `serve` process and injects the command and
-output into the generated site in a fenced block.
+This is an [MkDocs](https://www.mkdocs.org/) plugin that runs a specified
+command (or commands) during the `build` and `serve` process and injects the
+command and output into the generated site in a fenced block.
 
 It's very useful for documenting command-line programs, expecially during
 development where the command line may change frequently.
 
-See the [demo](https://seapagan.github.io/mkdocs-run-shell-cmd-plugin/) for an example.
+See the [demo](https://seapagan.github.io/mkdocs-run-shell-cmd-plugin/) for an
+example.
 
 - [IMPORTANT](#important)
 - [Installation](#installation)
@@ -67,7 +68,8 @@ markdown_extensions:
 ```
 
 You will also need the `pymdown-extensions` and `pygments` packages installed in
-your environment.
+your environment, unless you dont want the basic console syntax highlighting
+similar to GitHub markdown.
 
 Then, in your template, you can use the **`{{ run-shell-cmd(cmd="my-command") }}`**
 command:
