@@ -37,6 +37,8 @@
       
     
     
+      <link rel="stylesheet" href="css/tasklist.css">
+    
     <script>__md_scope=new URL(".",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
@@ -457,10 +459,10 @@ following options:</p>
 <p>This is released under the MIT License. See the bundled LICENSE file for more
 details.</p>
 <h2 id="todo">TODO</h2>
-<ul>
-<li>[ ] Add configuration options</li>
-<li>[ ] Add tests</li>
-<li>[ ] Find a way to run on CI/CD without prompting the user, but in a safe way
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Add configuration options</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Add tests</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Find a way to run on CI/CD without prompting the user, but in a safe way
   that doesn't allow arbitrary commands to be run. We can always check the <code>CI</code>
   environment variable, but it's still not good practice to run arbitrary code.</li>
 </ul>
