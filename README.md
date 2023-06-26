@@ -1,5 +1,7 @@
 # MkDocs Plugin : `run-shell-cmd` <!-- omit in toc -->
 
+[![PyPI version](https://badge.fury.io/py/mkdocs-run-shell-cmd-plugin.svg)](https://badge.fury.io/py/mkdocs-run-shell-cmd-plugin)
+
 This is an [MkDocs](https://www.mkdocs.org/) plugin that runs a specified
 command (or commands) during the `build` and `serve` process and injects the
 command and output into the generated site in a fenced block.
