@@ -1,14 +1,31 @@
 # MkDocs Plugin : `run-shell-cmd` <!-- omit in toc -->
 
 This is an [MkDocs](https://www.mkdocs.org/) plugin that runs the specified
-command during the build and serve process and injects the command and output
-into the generated site.
+command during the `build` and `serve` process and injects the command and
+output into the generated site in a fenced block. It's very useful for
+documenting command-line programs, expecially during development where the
+command line may change frequently.
 
+See the [demo](https://seapagan.github.io/mkdocs-run-shell-cmd-plugin/) for an example.
+
+- [IMPORTANT](#important)
 - [Installation](#installation)
 - [Usage](#usage)
 - [Configuration](#configuration)
 - [License](#license)
 - [TODO](#todo)
+
+## IMPORTANT
+
+  > This plugin allows running arbitrary commands on your system. It does
+  > **NOT** check the command for safety, and it does **NOT** run the command in
+  > a sandbox. However, it does ask you if you want to run the command, and it
+  > does allow you to disable any command from running again for the duration of
+  > the session. Also commands are not run using a shell, so your environment
+  > variables are not available to the command. Commands are set in the markdown
+  > file, so they are not run unless you build or serve the site. If you are
+  > using a CI/CD pipeline, you should be aware that some standard commands may
+  > be missing or blocked.
 
 ## Installation
 
@@ -108,6 +125,5 @@ details.
 
 ## TODO
 
-- [ ] Fill in this shell
 - [ ] Add configuration options
 - [ ] Add tests
