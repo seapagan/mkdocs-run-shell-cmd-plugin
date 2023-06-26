@@ -25,10 +25,10 @@ classifiers = [
   "Topic :: Text Processing :: Markup :: Markdown",
 ]
 
-packages = [{include = "mkdocs_run-shell-cmd_plugin"}]
+packages = [{include = "mkdocs_run_shell_cmd_plugin"}]
 
 [tool.poetry.plugins."mkdocs.plugins"]
-latest-git-tag = "mkdocs_latest_git_tag_plugin.plugin:LatestGitTagPlugin"
+run-shell-cmd = "mkdocs_run_shell_cmd_plugin.plugin:RunShellCmdPlugin"
 
 [tool.poetry.urls]
 "Pull Requests" = "https://github.com/seapagan/mkdocs-run-shell-cmd-plugin/pulls"
@@ -61,6 +61,9 @@ pytest-mock = "^3.11.1"
 mock = "^5.0.2"
 faker = "^18.10.1"
 mkdocs-material = "^9.1.16"
+pygments = "^2.15.1"
+pymdown-extensions = "^10.0.1"
+cowsay = "^5.0"
 
 [build-system]
 requires = ["poetry-core"]
@@ -77,6 +80,7 @@ pre = "pre-commit run --all-files"
 exclude = ["__init__.py"]
 max-line-length = 80
 docstring-convention = "google"
+ignore=["E203", "W503"]
 
 [tool.bandit]
 exclude_dirs = []

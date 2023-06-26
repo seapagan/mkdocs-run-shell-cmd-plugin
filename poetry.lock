@@ -298,6 +298,16 @@ tomli = {version = "*", optional = true, markers = "python_full_version <= \"3.1
 toml = ["tomli"]
 
 [[package]]
+name = "cowsay"
+version = "5.0"
+description = "The famous cowsay for GNU/Linux is now available for python"
+optional = false
+python-versions = "*"
+files = [
+    {file = "cowsay-5.0.tar.gz", hash = "sha256:c00e02444f5bc7332826686bd44d963caabbaba9a804a63153822edce62bbbf3"},
+]
+
+[[package]]
 name = "dill"
 version = "0.3.6"
 description = "serialize all of python"
@@ -1733,4 +1743,4 @@ testing = ["big-O", "flake8 (<5)", "jaraco.functools", "jaraco.itertools", "more
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.8.1"
-content-hash = "84369551295426f5d8777bbf0a34f9995f611486383f72df8a6c9bfcf848c861"
+content-hash = "f69f3d81f24ed4479326aa1fa2f443285a4955ae041e35ed531a17222a458b3f"
