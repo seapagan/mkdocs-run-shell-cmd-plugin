@@ -97,7 +97,7 @@ the user will be asked if it should be run or not :
 ```console
 INFO     -  Building documentation...
 INFO     -  Cleaning site directory
-"cowsay This works!!!" - Run this command? "[(Y)/(N)/(A)lways/(D)isable] [y]:  a
+"cowsay This works!!!" - Run this command? [(Y)/(N)/(A)lways/(D)isable] [y]: a
 INFO     -  Documentation built in 1.91 seconds
 INFO     -  [15:31:49] Watching paths for changes: 'docs', 'mkdocs.yml'
 

@@ -22,7 +22,7 @@ class RunShellCmdPlugin(BasePlugin):
 
         run_this = input(
             f'"{command}" - Run this command? '
-            '"[(Y)/(N)/(A)lways/(D)isable] [y]:  '
+            "[(Y)/(N)/(A)lways/(D)isable] [y]: "
         )
         if run_this.lower() in ["a", "always"]:
             self.always_run = True
