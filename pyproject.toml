@@ -6,7 +6,7 @@ authors = ["Grant Ramsay <seapagan@gmail.com>"]
 readme = "README.md"
 
 repository = "https://github.com/seapagan/mkdocs-run-shell-cmd-plugin"
-homepage = "https://github.com/seapagan/mkdocs-run-shell-cmd-plugin"
+homepage = "https://seapagan.github.io/mkdocs-run-shell-cmd-plugin/"
 
 classifiers = [
   "Development Status :: 4 - Beta",
