@@ -1,17 +1,13 @@
-# Welcome to MkDocs
+# Test
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Run the 'cowsay' command!
 
-## Commands
+{{ run-shell-cmd(cmd="cowsay This works!!!") }}
 
-* `mkdocs new [dir-name]` - Create a new project.
-* `mkdocs serve` - Start the live-reloading docs server.
-* `mkdocs build` - Build the documentation site.
-* `mkdocs -h` - Print help message and exit.
+Show the build OS information:
 
-## Project layout
+{{ run-shell-cmd(cmd='lsb_release -a') }}
 
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+Ping `google.com` 3 times and show the output.:
+
+{{ run-shell-cmd(cmd='ping -c 3 google.com') }}

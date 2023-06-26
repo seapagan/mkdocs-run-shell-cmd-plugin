@@ -3,3 +3,13 @@ site_name: mkdocs-run-shell-cmd-plugin
 theme:
   name: material
   language: en
+
+plugins:
+  - search
+  - run-shell-cmd
+
+markdown_extensions:
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      linenums: true
+      auto_title: true
