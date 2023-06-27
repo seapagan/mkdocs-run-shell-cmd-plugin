@@ -1,7 +1,7 @@
 # MkDocs Plugin : `run-shell-cmd`
 
 This is an [MkDocs](https://www.mkdocs.org/){:target="_blank"} plugin that runs
-a specified command (or commands) during the `build`, `serve` and publish
+a specified command (or commands) during the `build`, `serve` and `publish`
 process and injects the command and output into the generated site in a fenced
 block.
 
