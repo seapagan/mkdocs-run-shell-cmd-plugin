@@ -393,12 +393,13 @@
 
 
 <h1 id="mkdocs-plugin-run-shell-cmd">MkDocs Plugin : <code>run-shell-cmd</code></h1>
-<p>This is an <a href="https://www.mkdocs.org/">MkDocs</a> plugin that runs a specified
-command (or commands) during the <code>build</code>, <code>serve</code> and publish process and
-injects the command and output into the generated site in a fenced block.</p>
+<p>This is an <a href="https://www.mkdocs.org/" target="_blank">MkDocs</a> plugin that runs
+a specified command (or commands) during the <code>build</code>, <code>serve</code> and <code>publish</code>
+process and injects the command and output into the generated site in a fenced
+block.</p>
 <p>It's very useful for documenting command-line programs, expecially during
 development where the command line may change frequently.</p>
-<p>See the <a href="../examples">examples</a> page for several examples of the plugin in
+<p>See the <a href="examples">examples</a> page for several examples of the plugin in
 action.</p>
 <div class="admonition danger">
 <p class="admonition-title">IMPORTANT</p>
@@ -420,7 +421,7 @@ machine and then pushing them up to your hosting is probably a better idea.</p>
 <p>Install the package with pip:</p>
 <div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>mkdocs-run-shell-cmd-plugin
 </code></pre></div>
-<p>or, if you are using <a href="https://python-poetry.org">Poetry</a>:</p>
+<p>or, if you are using <a href="https://python-poetry.org" target="_blank">Poetry</a>:</p>
 <div class="highlight"><pre><span></span><code>poetry<span class="w"> </span>add<span class="w"> </span>mkdocs-run-shell-cmd-plugin<span class="w"> </span>--group<span class="w"> </span>dev
 </code></pre></div>
 <h2 id="usage">Usage</h2>
@@ -485,10 +486,10 @@ further commands will be run.</p>
 again for each command whenever you change a file and the site is rebuilt
 under <code>mkdocs serve</code>, even if the page with the command has not changed.</p>
 <p>To fix this you can either choose one of the options above or you can use
-the <code>--dirtyreload</code> option to <code>mkdocs serve</code> to disable the rebuild on file
-change. The latter will only re-create markdown files that have actually
-changed, but note the warning that this <strong>may</strong> cause navigation issues, but
-this is never usually an issue while serving the site locally.</p>
+the <code>--dirtyreload</code> option to <code>mkdocs serve</code> The latter option will only
+re-create markdown files that have actually changed, but note the warning
+that this <strong>may</strong> cause navigation issues. I have not seen this myself, this
+is never usually an issue while serving the site locally.</p>
 </div>
 <div class="admonition danger">
 <p class="admonition-title">IMPORTANT</p>
