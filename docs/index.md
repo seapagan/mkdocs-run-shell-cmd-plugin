@@ -21,8 +21,8 @@ action.
     file, so they are not run unless you build, serve or publish the site. If
     you are using a CI/CD pipeline to generate your docs, you should be aware
     that some standard commands may be missing or blocked, and the CI will
-    probably hang. Generating the docs on a local machine and then pushing them
-    up to your hosting is probably a better idea.
+    probably hang due to waiting for input. Generating the docs on a local
+    machine and then pushing them up to your hosting is probably a better idea.
 
 ## Installation
 
@@ -125,11 +125,3 @@ following options:
 
 This is released under the MIT License. See the bundled LICENSE file for more
 details.
-
-## TODO
-
-- [ ] Add configuration options
-- [ ] Add tests
-- [ ] Find a way to run on CI/CD without prompting the user, but in a safe way
-  that doesn't allow arbitrary commands to be run. We can always check the `CI`
-  environment variable, but it's still not good practice to run arbitrary code.

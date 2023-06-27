@@ -22,4 +22,5 @@ extra_css:
 nav:
   - Home: index.md
   - Examples: examples.md
+  - TODO List: todo.md
   - License: license.md
