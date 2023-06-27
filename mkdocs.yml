@@ -10,6 +10,7 @@ theme:
   features:
     - content.code.copy
     - navigation.expand
+    - navigation.sections
     - navigation.footer
     - navigation.top
 
@@ -38,7 +39,8 @@ extra_css:
   - css/extra.css
 
 nav:
-  - Home: index.md
-  - Examples: examples.md
-  - TODO List: todo.md
-  - License: license.md
+  - Documentation:
+      - Home: index.md
+      - Examples: examples.md
+      - TODO List: todo.md
+      - License: license.md
