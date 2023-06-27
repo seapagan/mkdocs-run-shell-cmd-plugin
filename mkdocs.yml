@@ -1,4 +1,4 @@
-site_name: mkdocs-run-shell-cmd-plugin
+site_name: MkDocs Run Shell Command Plugin
 
 repo_url: https://github.com/seapagan/mkdocs-run-shell-cmd-plugin
 repo_name: mkdocs-run-shell-cmd-plugin
@@ -11,6 +11,7 @@ theme:
     - content.code.copy
     - navigation.expand
     - navigation.footer
+    - navigation.top
 
 plugins:
   - search
@@ -34,7 +35,7 @@ extra:
       link: https://twitter.com/gnramsay_dev
 
 extra_css:
-  - css/tasklist.css
+  - css/extra.css
 
 nav:
   - Home: index.md
