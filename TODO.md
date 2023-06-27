@@ -9,5 +9,5 @@
   command in a document. Currently identical commands in the same document will
   be run each time instead of replacing the output of all with the first. This
   is a design decision, but it may be useful to have the option to change it.
-- [ ] Use [Rich](https://github.com/Textualize/rich) to emphasize the console
+- [x] Use [Rich](https://github.com/Textualize/rich) to emphasize the console
   output with color etc.

@@ -1,8 +1,16 @@
 site_name: mkdocs-run-shell-cmd-plugin
 
+repo_url: https://github.com/seapagan/mkdocs-run-shell-cmd-plugin
+repo_name: mkdocs-run-shell-cmd-plugin
+copyright: © 2023 Grant Ramsay (Seapagan)
+
 theme:
   name: material
   language: en
+  features:
+    - content.code.copy
+    - navigation.expand
+    - navigation.footer
 
 plugins:
   - search
@@ -15,6 +23,15 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.highlight
   - pymdownx.tasklist
+
+extra:
+  social:
+    - icon: material/web
+      link: https://www.gnramsay.com
+    - icon: fontawesome/brands/github
+      link: https://github.com/seapagan
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/gnramsay_dev
 
 extra_css:
   - css/tasklist.css
