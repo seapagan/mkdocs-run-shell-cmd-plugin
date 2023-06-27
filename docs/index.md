@@ -1,8 +1,9 @@
 # MkDocs Plugin : `run-shell-cmd`
 
-This is an [MkDocs](https://www.mkdocs.org/) plugin that runs a specified
-command (or commands) during the `build`, `serve` and publish process and
-injects the command and output into the generated site in a fenced block.
+This is an [MkDocs](https://www.mkdocs.org/){:target="_blank"} plugin that runs
+a specified command (or commands) during the `build`, `serve` and publish
+process and injects the command and output into the generated site in a fenced
+block.
 
 It's very useful for documenting command-line programs, expecially during
 development where the command line may change frequently.
@@ -37,7 +38,7 @@ Install the package with pip:
 pip install mkdocs-run-shell-cmd-plugin
 ```
 
-or, if you are using [Poetry](https://python-poetry.org):
+or, if you are using [Poetry](https://python-poetry.org){:target="_blank"}:
 
 ```bash
 poetry add mkdocs-run-shell-cmd-plugin --group dev
@@ -125,10 +126,10 @@ further commands will be run.
     under `mkdocs serve`, even if the page with the command has not changed.
 
     To fix this you can either choose one of the options above or you can use
-    the `--dirtyreload` option to `mkdocs serve` to disable the rebuild on file
-    change. The latter will only re-create markdown files that have actually
-    changed, but note the warning that this **may** cause navigation issues, but
-    this is never usually an issue while serving the site locally.
+    the `--dirtyreload` option to `mkdocs serve` The latter option will only
+    re-create markdown files that have actually changed, but note the warning
+    that this **may** cause navigation issues. I have not seen this myself, this
+    is never usually an issue while serving the site locally.
 
 !!! danger "IMPORTANT"
 
