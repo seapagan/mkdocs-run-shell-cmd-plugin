@@ -8,7 +8,7 @@ block.
 It's very useful for documenting command-line programs, expecially during
 development where the command line may change frequently.
 
-See the [examples](../examples) page for several examples of the plugin in
+See the [examples](examples.md) page for several examples of the plugin in
 action.
 
 !!! danger "IMPORTANT"
