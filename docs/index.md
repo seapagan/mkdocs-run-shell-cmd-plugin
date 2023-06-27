@@ -95,12 +95,17 @@ When the site is built, the progress will stop for each command discovered, and
 the user will be asked if it should be run or not :
 
 ```console
+INFO     -  You are using the 'run-shell-cmd' Plugin.
+            This will RUN SHELL COMMANDS that are specified in the markdown files!
+            You will be asked to CONFIRM each command, or you can specify (a)lways or (d)isable.
+            Visit https://seapagan.github.io/mkdocs-run-shell-cmd-plugin for more info.
 INFO     -  Building documentation...
 INFO     -  Cleaning site directory
-"cowsay This works!!!" - Run this command? [(Y)/(N)/(A)lways/(D)isable] [y]: a
-INFO     -  Documentation built in 1.91 seconds
-INFO     -  [15:31:49] Watching paths for changes: 'docs', 'mkdocs.yml'
-
+[Run Shell Command] - Run "cowsay This works!!!"? [y/n/a/d/yes/no/always/disable] (yes):
+[Run Shell Command] - Run "lsb_release -a"? [y/n/a/d/yes/no/always/disable] (yes): a
+INFO     -  Documentation built in 6.78 seconds
+INFO     -  [09:56:25] Watching paths for changes: 'docs', 'mkdocs.yml'
+INFO     -  [09:56:25] Serving on http://127.0.0.1:8000/
 ```
 
 You can choose Yes, No, Always, or Disable. If you choose Always, you will never
@@ -111,7 +116,7 @@ further commands will be run.
 !!! danger "IMPORTANT"
 
     There will **NEVER** be an option to run all commands by default without
-    user choice, as this would be a massive security risk.
+    user oversight, as this would be a massive security risk.
 
 ## Configuration
 

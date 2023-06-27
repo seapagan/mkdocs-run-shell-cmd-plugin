@@ -6,6 +6,7 @@ from typing import Literal
 
 from mkdocs.plugins import BasePlugin
 from rich import print  # pylint: disable=redefined-builtin
+from rich.prompt import Prompt
 
 
 class RunShellCmdPlugin(BasePlugin):
@@ -28,10 +29,12 @@ class RunShellCmdPlugin(BasePlugin):
         if self.always_run:
             return True
 
-        run_this = input(
-            f'"{command}" - Run this command? '
-            "[(Y)/(N)/(A)lways/(D)isable] [y]: "
+        run_this = Prompt.ask(
+            f'[green][Run Shell Command][/green] - Run "[red]{command}[/red]"?',
+            choices=["y", "n", "a", "d", "yes", "no", "always", "disable"],
+            default="yes",
         )
+
         if run_this.lower() in ["a", "always"]:
             self.always_run = True
         elif run_this.lower() in ["d", "disable"]:
@@ -54,6 +57,22 @@ class RunShellCmdPlugin(BasePlugin):
         to the new system where the plugin object is kept across builds within
         one mkdocs serve.
         """
+        print(
+            "INFO     -  [green]You are using the '[red]run-shell-cmd[/red]"
+            "[green]' Plugin."
+        )
+        print(
+            "            [bold]This will [red]RUN SHELL COMMANDS[/red] that "
+            "are specified in the markdown files!"
+        )
+        print(
+            "            You will be asked to [red]CONFIRM[/red] each command,"
+            " or you can specify [red](a)lways[/red] or [red](d)isable[/red]."
+        )
+        print(
+            "            Visit [green]https://seapagan.github.io/mkdocs-run"
+            "-shell-cmd-plugin[/green] for more info."
+        )
 
     def on_page_markdown(self, markdown: str, **kwargs) -> str | None:
         """Modify the markdown if our tag is present."""
