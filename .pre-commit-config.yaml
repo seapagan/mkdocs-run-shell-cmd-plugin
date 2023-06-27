@@ -30,7 +30,7 @@ repos:
     hooks:
       - id: pymarkdown
         exclude: ^.github/|^docs/
-        args: [-d, "MD014", scan]
+        args: [-d, "MD013,MD014", scan]
   - repo: https://github.com/pycqa/pydocstyle
     rev: 6.3.0
     hooks:

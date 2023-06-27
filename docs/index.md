@@ -16,13 +16,18 @@ action.
     **NOT** check the command for safety, and it does **NOT** run the command in
     a sandbox. However, it does ask you if you want to run each command, and it
     does allow you to disable all commands from running again for the duration
-    of the session. Also commands are not run using a shell, so your environment
-    variables are not available to the command. Commands are set in the markdown
-    file, so they are not run unless you build, serve or publish the site. If
-    you are using a CI/CD pipeline to generate your docs, you should be aware
+    of the session.
+
+    Also commands are not run using a shell, so your environment variables are
+    not available to the command.
+
+    Commands are set in the markdown file, so they are not run unless you build,
+    serve or publish the site.
+
+    If you are using a CI/CD pipeline to generate your docs, you should be aware
     that some standard commands may be missing or blocked, and the CI will
-    probably hang. Generating the docs on a local machine and then pushing them
-    up to your hosting is probably a better idea.
+    probably hang due to waiting for input. Generating the docs on a local
+    machine and then pushing them up to your hosting is probably a better idea.
 
 ## Installation
 
@@ -95,12 +100,17 @@ When the site is built, the progress will stop for each command discovered, and
 the user will be asked if it should be run or not :
 
 ```console
+INFO     -  You are using the 'run-shell-cmd' Plugin.
+            This will RUN SHELL COMMANDS that are specified in the markdown files!
+            You will be asked to CONFIRM each command, or you can specify (a)lways or (d)isable.
+            Visit https://seapagan.github.io/mkdocs-run-shell-cmd-plugin for more info.
 INFO     -  Building documentation...
 INFO     -  Cleaning site directory
-"cowsay This works!!!" - Run this command? [(Y)/(N)/(A)lways/(D)isable] [y]: a
-INFO     -  Documentation built in 1.91 seconds
-INFO     -  [15:31:49] Watching paths for changes: 'docs', 'mkdocs.yml'
-
+[Run Shell Command] - Run "cowsay This works!!!"? [y/n/a/d/yes/no/always/disable] (yes):
+[Run Shell Command] - Run "lsb_release -a"? [y/n/a/d/yes/no/always/disable] (yes): a
+INFO     -  Documentation built in 6.78 seconds
+INFO     -  [09:56:25] Watching paths for changes: 'docs', 'mkdocs.yml'
+INFO     -  [09:56:25] Serving on http://127.0.0.1:8000/
 ```
 
 You can choose Yes, No, Always, or Disable. If you choose Always, you will never
@@ -108,10 +118,22 @@ be asked again **FOR THIS SESSION** and all further commands will be run. If you
 choose Disable, you will never be asked again **FOR THIS SESSION** and NO
 further commands will be run.
 
+!!! note
+
+    Be aware, if you do not choose **Always** or **Disable**, you will be asked
+    again for each command whenever you change a file and the site is rebuilt
+    under `mkdocs serve`, even if the page with the command has not changed.
+
+    To fix this you can either choose one of the options above or you can use
+    the `--dirtyreload` option to `mkdocs serve` to disable the rebuild on file
+    change. The latter will only re-create markdown files that have actually
+    changed, but note the warning that this **may** cause navigation issues, but
+    this is never usually an issue while serving the site locally.
+
 !!! danger "IMPORTANT"
 
     There will **NEVER** be an option to run all commands by default without
-    user choice, as this would be a massive security risk.
+    user oversight, as this would be a massive security risk.
 
 ## Configuration
 
@@ -125,11 +147,3 @@ following options:
 
 This is released under the MIT License. See the bundled LICENSE file for more
 details.
-
-## TODO
-
-- [ ] Add configuration options
-- [ ] Add tests
-- [ ] Find a way to run on CI/CD without prompting the user, but in a safe way
-  that doesn't allow arbitrary commands to be run. We can always check the `CI`
-  environment variable, but it's still not good practice to run arbitrary code.

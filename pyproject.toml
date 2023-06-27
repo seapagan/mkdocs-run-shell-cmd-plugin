@@ -37,6 +37,7 @@ run-shell-cmd = "mkdocs_run_shell_cmd_plugin.plugin:RunShellCmdPlugin"
 [tool.poetry.dependencies]
 python = "^3.8.1"
 mkdocs = "^1.4.3"
+rich = "^13.4.2"
 
 [tool.poetry.group.dev.dependencies]
 flake8 = "^6.0.0"
