@@ -243,13 +243,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#todo" class="md-nav__link">
-    TODO
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -268,6 +261,21 @@
     <li class="md-nav__item">
       <a href="examples/" class="md-nav__link">
         Examples
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="todo/" class="md-nav__link">
+        TODO List
       </a>
     </li>
   
@@ -342,13 +350,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#todo" class="md-nav__link">
-    TODO
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -378,13 +379,15 @@ action.</p>
 <strong>NOT</strong> check the command for safety, and it does <strong>NOT</strong> run the command in
 a sandbox. However, it does ask you if you want to run each command, and it
 does allow you to disable all commands from running again for the duration
-of the session. Also commands are not run using a shell, so your environment
-variables are not available to the command. Commands are set in the markdown
-file, so they are not run unless you build, serve or publish the site. If
-you are using a CI/CD pipeline to generate your docs, you should be aware
+of the session.</p>
+<p>Also commands are not run using a shell, so your environment variables are
+not available to the command.</p>
+<p>Commands are set in the markdown file, so they are not run unless you build,
+serve or publish the site.</p>
+<p>If you are using a CI/CD pipeline to generate your docs, you should be aware
 that some standard commands may be missing or blocked, and the CI will
-probably hang. Generating the docs on a local machine and then pushing them
-up to your hosting is probably a better idea.</p>
+probably hang due to waiting for input. Generating the docs on a local
+machine and then pushing them up to your hosting is probably a better idea.</p>
 </div>
 <h2 id="installation">Installation</h2>
 <p>Install the package with pip:</p>
@@ -433,20 +436,37 @@ use either double or single quotes around the command string.</p>
 <p><code>{{ run-SHELL-cmd(cmd="my-program --help")}}</code></p>
 <p>When the site is built, the progress will stop for each command discovered, and
 the user will be asked if it should be run or not :</p>
-<div class="highlight"><pre><span></span><code><span class="go">INFO     -  Building documentation...</span>
+<div class="highlight"><pre><span></span><code><span class="go">INFO     -  You are using the &#39;run-shell-cmd&#39; Plugin.</span>
+<span class="go">            This will RUN SHELL COMMANDS that are specified in the markdown files!</span>
+<span class="go">            You will be asked to CONFIRM each command, or you can specify (a)lways or (d)isable.</span>
+<span class="go">            Visit https://seapagan.github.io/mkdocs-run-shell-cmd-plugin for more info.</span>
+<span class="go">INFO     -  Building documentation...</span>
 <span class="go">INFO     -  Cleaning site directory</span>
-<span class="go">&quot;cowsay This works!!!&quot; - Run this command? [(Y)/(N)/(A)lways/(D)isable] [y]: a</span>
-<span class="go">INFO     -  Documentation built in 1.91 seconds</span>
-<span class="go">INFO     -  [15:31:49] Watching paths for changes: &#39;docs&#39;, &#39;mkdocs.yml&#39;</span>
+<span class="go">[Run Shell Command] - Run &quot;cowsay This works!!!&quot;? [y/n/a/d/yes/no/always/disable] (yes):</span>
+<span class="go">[Run Shell Command] - Run &quot;lsb_release -a&quot;? [y/n/a/d/yes/no/always/disable] (yes): a</span>
+<span class="go">INFO     -  Documentation built in 6.78 seconds</span>
+<span class="go">INFO     -  [09:56:25] Watching paths for changes: &#39;docs&#39;, &#39;mkdocs.yml&#39;</span>
+<span class="go">INFO     -  [09:56:25] Serving on http://127.0.0.1:8000/</span>
 </code></pre></div>
 <p>You can choose Yes, No, Always, or Disable. If you choose Always, you will never
 be asked again <strong>FOR THIS SESSION</strong> and all further commands will be run. If you
 choose Disable, you will never be asked again <strong>FOR THIS SESSION</strong> and NO
 further commands will be run.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Be aware, if you do not choose <strong>Always</strong> or <strong>Disable</strong>, you will be asked
+again for each command whenever you change a file and the site is rebuilt
+under <code>mkdocs serve</code>, even if the page with the command has not changed.</p>
+<p>To fix this you can either choose one of the options above or you can use
+the <code>--dirtyreload</code> option to <code>mkdocs serve</code> to disable the rebuild on file
+change. The latter will only re-create markdown files that have actually
+changed, but note the warning that this <strong>may</strong> cause navigation issues, but
+this is never usually an issue while serving the site locally.</p>
+</div>
 <div class="admonition danger">
 <p class="admonition-title">IMPORTANT</p>
 <p>There will <strong>NEVER</strong> be an option to run all commands by default without
-user choice, as this would be a massive security risk.</p>
+user oversight, as this would be a massive security risk.</p>
 </div>
 <h2 id="configuration">Configuration</h2>
 <p>At this time there are no configuration options. I intend to add at least the
@@ -458,14 +478,6 @@ following options:</p>
 <h2 id="license">License</h2>
 <p>This is released under the MIT License. See the bundled LICENSE file for more
 details.</p>
-<h2 id="todo">TODO</h2>
-<ul class="task-list">
-<li class="task-list-item"><input type="checkbox" disabled/> Add configuration options</li>
-<li class="task-list-item"><input type="checkbox" disabled/> Add tests</li>
-<li class="task-list-item"><input type="checkbox" disabled/> Find a way to run on CI/CD without prompting the user, but in a safe way
-  that doesn't allow arbitrary commands to be run. We can always check the <code>CI</code>
-  environment variable, but it's still not good practice to run arbitrary code.</li>
-</ul>
 
 
 

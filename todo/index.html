@@ -9,15 +9,17 @@
       
       
       
-        <link rel="prev" href="../todo/">
+        <link rel="prev" href="../examples/">
       
+      
+        <link rel="next" href="../license/">
       
       <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.17">
     
     
       
-        <title>License - mkdocs-run-shell-cmd-plugin</title>
+        <title>TODO List - mkdocs-run-shell-cmd-plugin</title>
       
     
     
@@ -61,7 +63,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#license" class="md-skip">
+        <a href="#todo-list" class="md-skip">
           Skip to content
         </a>
       
@@ -96,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              License
+              TODO List
             
           </span>
         </div>
@@ -210,21 +212,6 @@
 
   
   
-  
-    <li class="md-nav__item">
-      <a href="../todo/" class="md-nav__link">
-        TODO List
-      </a>
-    </li>
-  
-
-    
-      
-      
-      
-
-  
-  
     
   
   
@@ -237,9 +224,24 @@
       
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        License
+        TODO List
       </a>
       
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../license/" class="md-nav__link">
+        License
+      </a>
     </li>
   
 
@@ -277,24 +279,20 @@
                   
 
 
-<h1 id="license">License</h1>
-<p>MIT License</p>
-<p>Copyright (c) 2023 Grant Ramsay</p>
-<p>Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:</p>
-<p>The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.</p>
-<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.</p>
+<h1 id="todo-list">TODO List</h1>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" disabled/> Add configuration options</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Add tests</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Find a way to run on CI/CD without prompting the user, but in a safe way
+  that doesn't allow arbitrary commands to be run. We can always check the <code>CI</code>
+  environment variable, but it's still not good practice to run arbitrary code.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Configure option to enable/disable only changing the first instance of a
+  command in a document. Currently identical commands in the same document will
+  be run each time instead of replacing the output of all with the first. This
+  is a design decision, but it may be useful to have the option to change it.</li>
+<li class="task-list-item"><input type="checkbox" disabled/> Use <a href="https://github.com/Textualize/rich">Rich</a> to emphasize the console
+  output with color etc.</li>
+</ul>
 
 
 
