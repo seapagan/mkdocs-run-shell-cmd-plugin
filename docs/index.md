@@ -16,10 +16,15 @@ action.
     **NOT** check the command for safety, and it does **NOT** run the command in
     a sandbox. However, it does ask you if you want to run each command, and it
     does allow you to disable all commands from running again for the duration
-    of the session. Also commands are not run using a shell, so your environment
-    variables are not available to the command. Commands are set in the markdown
-    file, so they are not run unless you build, serve or publish the site. If
-    you are using a CI/CD pipeline to generate your docs, you should be aware
+    of the session.
+
+    Also commands are not run using a shell, so your environment variables are
+    not available to the command.
+
+    Commands are set in the markdown file, so they are not run unless you build,
+    serve or publish the site.
+
+    If you are using a CI/CD pipeline to generate your docs, you should be aware
     that some standard commands may be missing or blocked, and the CI will
     probably hang due to waiting for input. Generating the docs on a local
     machine and then pushing them up to your hosting is probably a better idea.
@@ -112,6 +117,18 @@ You can choose Yes, No, Always, or Disable. If you choose Always, you will never
 be asked again **FOR THIS SESSION** and all further commands will be run. If you
 choose Disable, you will never be asked again **FOR THIS SESSION** and NO
 further commands will be run.
+
+!!! note
+
+    Be aware, if you do not choose **Always** or **Disable**, you will be asked
+    again for each command whenever you change a file and the site is rebuilt
+    under `mkdocs serve`, even if the page with the command has not changed.
+
+    To fix this you can either choose one of the options above or you can use
+    the `--dirtyreload` option to `mkdocs serve` to disable the rebuild on file
+    change. The latter will only re-create markdown files that have actually
+    changed, but note the warning that this **may** cause navigation issues, but
+    this is never usually an issue while serving the site locally.
 
 !!! danger "IMPORTANT"
 
