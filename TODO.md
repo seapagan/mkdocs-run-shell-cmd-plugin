@@ -11,3 +11,4 @@
   is a design decision, but it may be useful to have the option to change it.
 - [x] Use [Rich](https://github.com/Textualize/rich) to emphasize the console
   output with color etc.
+- [ ] Allow hiding the command line in the output (ie remove the first line).
